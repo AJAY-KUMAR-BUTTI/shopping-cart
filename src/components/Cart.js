@@ -12,8 +12,8 @@ const removeToCart = id => {
   dispatch(remove(id));
 }
 
-  const cards = products.map(product => (
-    <div className='col-md-12' key={product.id} >
+  const cards = products.map((product, index) => (
+    <div className='col-md-12' key={index} >
         <Card className='h-100' style={{ marginBottom : '10px'}}>
             <div className='text-center'>
                 <Card.Img variant="top" src={product.image} style={{ width : '150px', height : '150px'}} />
@@ -25,7 +25,7 @@ const removeToCart = id => {
                 </Card.Text>
             </Card.Body>
             <Card.Footer style={{ background : 'white'}}>
-                <Button variant="contained" color='error' onClick={() => removeToCart(product.id)}>Remove</Button>
+                <Button variant="contained" color='error' onClick={() => removeToCart(index)}>Remove</Button>
             </Card.Footer>
         </Card>
     </div>
